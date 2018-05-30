@@ -5,12 +5,14 @@ const {app, BrowserWindow} = require('electron')
   let win
   
   function createWindow () {
+    app.server = require('./app/app.js')();
+    // app.server = require("/Users/OBYNO/Documents/Node Projects/electron_app" + '/app/app.js')();
     // Create the browser window.
     win = new BrowserWindow({width: 800, height: 600})
   
     // and load the index.html of the app.
-    win.loadFile('index.html')
-  
+    win.loadURL('http://localhost:4000')
+    win.focus();
     // Open the DevTools.
     win.webContents.openDevTools()
   
